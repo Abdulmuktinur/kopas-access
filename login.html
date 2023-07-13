@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css">
+    <title>Login</title>
+    <style>
+        .login-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            /* height: 100vh; */
+        }
+
+        .login-form {
+            width: 50%;
+            padding: 0 80px 0 100px;
+        }
+
+        .carousel-container {
+            width: 50%;
+            overflow: hidden;
+        }
+
+        .carousel-inner {
+            width: 100%;
+            height: 100%;
+        }
+
+        .carousel-item {
+            width: 100%;
+            height: 100vh;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .tab-pane {
+            display: none;
+        }
+
+        .tab-pane.active {
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            .login-container {
+                flex-direction: column;
+            }
+
+            .login-form,
+            .carousel-container {
+                width: 100%;
+            }
+
+            .carousel-item {
+                height: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-form">
+            <ul class="nav nav-tabs mb-4">
+                <li class="nav-item">
+                    <a class="nav-link active" id="gratis-tab" data-bs-toggle="tab" href="#gratis">Gratis</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="voucher-tab" data-bs-toggle="tab" href="#voucher">Voucher</a>
+                </li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane active" id="gratis">
+                    <h2 class="mb-4">Login Gratis</h2>
+                    <form action="index.html" method="POST">
+                        <div class="mb-3">
+                            <label for="username" class="form-label">Username</label>
+                            <input type="text" class="form-control" id="username">
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="password">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Login</button>
+                    </form>
+                </div>
+                <div class="tab-pane" id="voucher">
+                    <h2 class="mb-4">Login dengan Voucher</h2>
+                    <form action="index.html" method="POST">
+                        <div class="mb-3">
+                            <label for="voucher" class="form-label">Voucher</label>
+                            <input type="text" class="form-control" id="voucher">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Login</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-container">
+            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active" style="background-image: url('img/slide-img/slid-img0.jpg');"></div>
+                    <div class="carousel-item" style="background-image: url('img/slide-img/img-login2.jpg');"></div>
+                    <div class="carousel-item" style="background-image: url('img/slide-img/img-login1.jpg'); "></div>
+                    <div class="carousel-item" style="background-image: url('img/slide-img/slide-img1.jpg'); "></div>
+                    <div class="carousel-item" style="background-image: url('img/slide-img/slide-img2.jpg'); "></div>
+                    <div class="carousel-item" style="background-image: url('img/slide-img/slide-img3.jpg'); "></div>
+                    <div class="carousel-item" style="background-image: url('img/slide-img/slide-img4.jpg'); "></div>
+                    <div class="carousel-item" style="background-image: url('img/slide-img/slide-img5.jpg'); "></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Include the Bootstrap 5 JavaScript bundle at the end of the body tag -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.bundle.min.js"></script>
+    <script>
+        var tabToggleTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tab"]'));
+        tabToggleTriggerList.forEach(function (triggerEl) {
+            var tabPane = new bootstrap.Tab(triggerEl);
+            triggerEl.addEventListener('click', function (event) {
+                event.preventDefault();
+                tabPane.show();
+            });
+        });
+
+        document.addEventListener("DOMContentLoaded", function() {
+            const carousel = document.querySelector("#carouselExampleIndicators");
+            const carouselInstance = new bootstrap.Carousel(carousel, {
+                interval: 3000 // Ubah angka ini sesuai dengan waktu yang diinginkan (dalam milidetik)
+            });
+        });
+    </script>
+
+</body>
+</html>
