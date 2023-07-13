@@ -12,7 +12,7 @@
 
   <nav class="navbar navbar-expand-lg fixed-top navbar-light transparent">
     <div class="container">
-        <a class="navbar-brand" href="#"><img src="img/kopasAcc.png" alt="brand-image"></a>
+        <a class="navbar-brand" href="#home"><img src="img/kopasAcc.png" alt="brand-image"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -35,7 +35,7 @@
                     <a class="nav-link" href="#contact">Contact</a>
                 </li>
             </ul>
-            <a href="login.html" class="btn btn-primary">Login</a>
+            <a href="login.html" class="btn">Login</a>
         </div>
     </div>
   </nav>
@@ -416,10 +416,17 @@
   <script>
     document.addEventListener("DOMContentLoaded", function() {
       window.addEventListener("scroll", function() {
+
+        var navbar = document.querySelector(".navbar");
+        var btn = document.querySelector(".btn");
+
         if (window.scrollY > 40) {
-          document.querySelector(".navbar").classList.add("scrolled");
-        } else {
-          document.querySelector(".navbar").classList.remove("scrolled");
+          navbar.classList.add("scrolled");
+          btn.classList.add("btn-outline-dark");
+        } 
+        else {
+          navbar.classList.remove("scrolled");
+          btn.classList.remove("btn-outline-dark");
         }
       });
     });
